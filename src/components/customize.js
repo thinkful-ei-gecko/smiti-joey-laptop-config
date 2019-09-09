@@ -1,4 +1,5 @@
 import React from 'react';
+import features from './features'
 
 function Customize(){
 
@@ -7,3 +8,5 @@ function Customize(){
     {features}
   </form>)
 }
+
+export default Customize;

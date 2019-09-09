@@ -1,6 +1,12 @@
 import React from 'react';
+import USCurrencyFormat from './utilities/USCurrencyFormat'
+import slugify from 'slugify'
 
-const features = Object.keys(this.props.features).map((feature, idx) => {
+
+
+
+function features(props){ 
+  Object.keys(this.props.features).map((feature, idx) => {
     const featureHash = feature + '-' + idx;
     const options = this.props.features[feature].map(item => {
       const itemHash = slugify(JSON.stringify(item));
@@ -30,3 +36,6 @@ const features = Object.keys(this.props.features).map((feature, idx) => {
       </fieldset>
     );
   });
+}
+
+export default features;
