@@ -1,23 +1,15 @@
 import React from 'react';
-import summary from './summary';
-import USCurrencyFormat from './utilities/USCurrencyFormat'
+import Summary from './summary';
+import Total from './total'
 
 
-const total = Object.keys(this.state.selected).reduce(
-    (acc, curr) => acc + this.state.selected[curr].cost,
-    0
-  );
 
-export default function mainSummary(){
+
+export default function MainSummary(props){
 return(
         <section className="main__summary">
             <h2>Your cart</h2>
-            {summary}
-            <div className="summary__total">
-              <div className="summary__total__label">Total</div>
-              <div className="summary__total__value">
-                {USCurrencyFormat.format(total)}
-              </div>
-            </div>
+            <Summary features = {props.selected} />
+            <Total  selected= {props.selected} />
           </section>
  ) }

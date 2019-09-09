@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/header'
 import Customize from './components/customize';
-import mainSummary from './components/mainSummary';
+import MainSummary from './components/MainSummary';
 // Normalizes string as a slug - a string that is safe to use
 // in both URLs and html attributes
 import slugify from 'slugify';
@@ -45,8 +45,13 @@ class App extends Component {
       <div className="App">
         < Header />
         <main>
-         <Customize />
-         <mainSummary />
+         {/* <Customize /> */}
+         <MainSummary selected = {this.state.selected}/>
+         <Customize 
+         features = {this.props.features}
+         selected = {this.state.selected}
+         updateFeature ={this.updateFeature}
+         />
         </main>
       </div>
     );

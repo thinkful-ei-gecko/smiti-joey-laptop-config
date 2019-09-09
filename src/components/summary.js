@@ -1,20 +1,23 @@
 import React from 'react';
-import USCurrencyFormat from './utilities/USCurrencyFormat';
 
 
-const summary = Object.keys(this.state.selected).map((feature, idx) => {
-    const featureHash = feature + '-' + idx;
-    const selectedOption = this.state.selected[feature];
 
-    return (
-      <div className="summary__option" key={featureHash}>
-        <div className="summary__option__label">{feature} </div>
-        <div className="summary__option__value">{selectedOption.name}</div>
-        <div className="summary__option__cost">
-          {USCurrencyFormat.format(selectedOption.cost)}
-        </div>
+function Summary(props){
+  return Object.keys(props.features).map((feature, idx) => {
+  const featureHash = feature + '-' + idx;
+  const selectedOption = props.features[feature];
+
+  return (
+    <div className="summary__option" key={featureHash}>
+      <div className="summary__option__label">{feature} </div>
+      <div className="summary__option__value">{selectedOption.name}</div>
+      <div className="summary__option__cost">
+        {new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD'
+          }).format(selectedOption.cost)}
       </div>
-    );
-  });
-
-export default summary;
+    </div>
+  );
+});}
+export default Summary;
