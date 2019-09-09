@@ -48,9 +48,9 @@ class App extends Component {
          {/* <Customize /> */}
          <MainSummary selected = {this.state.selected}/>
          <Customize 
-         features = {this.props.features}
-         selected = {this.state.selected}
-         updateFeature ={this.updateFeature}
+          features = {this.props.features}
+          selected = {this.state.selected}
+          updateFeature ={this.updateFeature}
          />
         </main>
       </div>
