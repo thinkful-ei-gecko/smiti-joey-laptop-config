@@ -5,10 +5,16 @@ import slugify from 'slugify'
 
 
 function Options(props){
-return Object.keys(props.features).map((feature, idx) => {
+
+  return Object.keys(props.features).map((feature, idx) => {
+
+    //feature is title and idx is index
     const featureHash = feature + '-' + idx;
-    const options = props.features[feature].map(item => {
+    console.log(featureHash);
+    const options = props.features[feature].map(item => 
+      {
       const itemHash = slugify(JSON.stringify(item));
+      console.log(itemHash);
       return (
         <div key={itemHash} className="feature__item">
           <input
@@ -16,14 +22,16 @@ return Object.keys(props.features).map((feature, idx) => {
             id={itemHash}
             className="feature__option"
             name={slugify(feature)}
+            
             checked={item.name === props.selected[feature].name}
             onChange={e => props.updateFeature(feature, item)}
           />
+          
           <label htmlFor={itemHash} className="feature__label">
             {item.name} ({new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD'
-}).format(item.cost)})
+            style: 'currency',
+            currency: 'USD'
+            }).format(item.cost)})
           </label>
         </div>
       );
@@ -32,7 +40,7 @@ return Object.keys(props.features).map((feature, idx) => {
     return (
       <fieldset className="feature" key={featureHash}>
         <legend className="feature__name">
-          <h3>{feature}</h3>
+          <h3>{feature}</h3>     
         </legend>
         {options}
       </fieldset>

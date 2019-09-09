@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from './components/header'
-import Customize from './components/customize';
+import Header from './components/Header'
+import Customize from './components/Customize';
 import MainSummary from './components/MainSummary';
 // Normalizes string as a slug - a string that is safe to use
 // in both URLs and html attributes
