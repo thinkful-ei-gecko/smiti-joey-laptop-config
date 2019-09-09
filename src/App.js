@@ -45,13 +45,13 @@ class App extends Component {
       <div className="App">
         < Header />
         <main>
-         {/* <Customize /> */}
-         <MainSummary selected = {this.state.selected}/>
-         <Customize 
+        <Customize 
           features = {this.props.features}
           selected = {this.state.selected}
           updateFeature ={this.updateFeature}
          />
+         <MainSummary selected = {this.state.selected}/>
+         
         </main>
       </div>
     );
