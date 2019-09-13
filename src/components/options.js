@@ -7,7 +7,6 @@ import slugify from 'slugify'
 function Options(props){
 
   return Object.keys(props.features).map((feature, idx) => {
-
     //feature is title and idx is index
     const featureHash = feature + '-' + idx;
     console.log(featureHash);
@@ -15,6 +14,11 @@ function Options(props){
       {
       const itemHash = slugify(JSON.stringify(item));
       console.log(itemHash);
+      console.log(new Intl.NumberFormat('en-GB', {
+        style: 'currency',
+        currency: 'GBP'
+        }).format(item.cost));
+
       return (
         <div key={itemHash} className="feature__item">
           <input
@@ -32,6 +36,7 @@ function Options(props){
             style: 'currency',
             currency: 'USD'
             }).format(item.cost)})
+
           </label>
         </div>
       );
